@@ -1,0 +1,11 @@
+[project]
+name = "playerpricepredictor"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=7.3.0",
+    "numpy>=2.4.6",
+    "pandas>=3.0.3",
+    "pandas-stubs~=3.0.3",
+    "scikit-learn>=1.9.0",
+]
