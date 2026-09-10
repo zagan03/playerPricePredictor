@@ -63,10 +63,11 @@ def predict_player_market_value(player: dict) -> float:
     df_aligned = df_encoded.reindex(columns=feature_columns, fill_value=0)
 
     # predictie
-    prediction = model.predict(df_aligned)[0]
+    log_prediction = model.predict(df_aligned)[0]
+    real_prediction = np.expm1(log_prediction)
 
-    # cota nu poate fi negativa in realitate
-    return max(0.05, float(prediction))
+    # cota nu poate fi negativa in realitate, pragul minim este 0.01 M
+    return max(0.01, float(real_prediction))
 
 
 
